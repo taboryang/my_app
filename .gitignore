@@ -1,8 +1,8 @@
 # Dependencies
 node_modules/
 
-# Music files (too large for GitHub)
-public/music/*.mp3
+# Music files (too large for GitHub) - commented out to include in commit
+# public/music/*.mp3
 
 # Logs
 npm-debug.log*

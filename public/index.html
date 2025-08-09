@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro AI Desktop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="desktop">
+        <div id="taskbar">
+            <button class="app-button" data-app="youtube">YouTube Video</button>
+            <button class="app-button" data-app="app2">AI Tool 2</button>
+            <button class="app-button" data-app="app3">AI Tool 3</button>
+            <button class="app-button" data-app="app4">AI Tool 4</button>
+            <button class="app-button" data-app="app5">AI Tool 5</button>
+        </div>
+        
+        <div class="background-controls">
+            <button id="bg-prev" class="arrow-btn">◀</button>
+            <span id="bg-name">Mountain Lake</span>
+            <button id="bg-next" class="arrow-btn">▶</button>
+        </div>
+
+        <div id="windows-container">
+            <div id="youtube-window" class="window" style="display: none;">
+                <div class="window-header">
+                    <span>YouTube Video</span>
+                    <button class="close-btn" onclick="closeWindow('youtube-window')">×</button>
+                </div>
+                <div class="window-content">
+                    <iframe 
+                        src="https://www.youtube.com/embed/I5ZR6wDqzB0"
+                        frameborder="0" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div id="app2-window" class="window" style="display: none;">
+                <div class="window-header">
+                    <span>AI Tool 2</span>
+                    <button class="close-btn" onclick="closeWindow('app2-window')">×</button>
+                </div>
+                <div class="window-content placeholder">
+                    <h3>Coming Soon!</h3>
+                    <p>Add button functionality later</p>
+                </div>
+            </div>
+
+            <div id="app3-window" class="window" style="display: none;">
+                <div class="window-header">
+                    <span>AI Tool 3</span>
+                    <button class="close-btn" onclick="closeWindow('app3-window')">×</button>
+                </div>
+                <div class="window-content placeholder">
+                    <h3>Coming Soon!</h3>
+                    <p>Add button functionality later</p>
+                </div>
+            </div>
+
+            <div id="app4-window" class="window" style="display: none;">
+                <div class="window-header">
+                    <span>AI Tool 4</span>
+                    <button class="close-btn" onclick="closeWindow('app4-window')">×</button>
+                </div>
+                <div class="window-content placeholder">
+                    <h3>Coming Soon!</h3>
+                    <p>Add button functionality later</p>
+                </div>
+            </div>
+
+            <div id="app5-window" class="window" style="display: none;">
+                <div class="window-header">
+                    <span>AI Tool 5</span>
+                    <button class="close-btn" onclick="closeWindow('app5-window')">×</button>
+                </div>
+                <div class="window-content placeholder">
+                    <h3>Coming Soon!</h3>
+                    <p>Add button functionality later</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

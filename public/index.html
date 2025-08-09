@@ -9,11 +9,22 @@
 <body>
     <div id="desktop">
         <div id="taskbar">
-            <button class="app-button" data-app="youtube">YouTube Video</button>
-            <button class="app-button" data-app="app2">AI Tool 2</button>
-            <button class="app-button" data-app="app3">AI Tool 3</button>
-            <button class="app-button" data-app="app4">AI Tool 4</button>
-            <button class="app-button" data-app="app5">AI Tool 5</button>
+            <button class="app-button" data-app="youtube">
+                <span class="button-icon">🎥</span>
+                <span class="button-text">YouTube</span>
+            </button>
+            <button class="app-button" data-app="app2">
+                <span class="button-icon">🎵</span>
+                <span class="button-text">iPod</span>
+            </button>
+            <button class="app-button" data-app="app3">
+                <span class="button-icon">📝</span>
+                <span class="button-text">Notes</span>
+            </button>
+            <button class="app-button" data-app="home">
+                <span class="button-icon">🏠</span>
+                <span class="button-text">Home</span>
+            </button>
         </div>
         
         <div class="background-controls">
@@ -37,47 +48,105 @@
                 </div>
             </div>
 
-            <div id="app2-window" class="window" style="display: none;">
+            <div id="app2-window" class="window ipod-window" style="display: none;">
                 <div class="window-header">
-                    <span>AI Tool 2</span>
+                    <span>iPod Classic</span>
                     <button class="close-btn" onclick="closeWindow('app2-window')">×</button>
                 </div>
-                <div class="window-content placeholder">
-                    <h3>Coming Soon!</h3>
-                    <p>Add button functionality later</p>
+                <div class="window-content ipod-body">
+                    <div class="ipod-top">
+                        <div class="ipod-screen">
+                            <div class="screen-border">
+                                <div class="screen-content">
+                                    <div class="ipod-logo">iPod</div>
+                                    <div class="song-display">
+                                        <div class="song-title" id="song-title">Chill Beats</div>
+                                        <div class="song-artist" id="song-artist">Retro Vibes</div>
+                                        <div class="progress-info">
+                                            <span id="current-time">0:00</span>
+                                            <div class="mini-progress">
+                                                <div class="mini-progress-fill" id="progress-fill"></div>
+                                            </div>
+                                            <span id="total-time">3:24</span>
+                                        </div>
+                                    </div>
+                                    <div class="visualizer-small" id="visualizer">
+                                        <div class="vis-dot"></div>
+                                        <div class="vis-dot"></div>
+                                        <div class="vis-dot"></div>
+                                        <div class="vis-dot"></div>
+                                        <div class="vis-dot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ipod-bottom">
+                        <div class="click-wheel">
+                            <div class="wheel-outer">
+                                <div class="wheel-button wheel-menu">MENU</div>
+                                <div class="wheel-button wheel-prev">⏮</div>
+                                <div class="wheel-button wheel-next">⏭</div>
+                                <div class="wheel-button wheel-select">▶️/⏸️</div>
+                                <div class="wheel-center" id="play-btn">
+                                    <div class="center-button">▶️</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <audio id="audio-player" preload="metadata"></audio>
                 </div>
             </div>
 
-            <div id="app3-window" class="window" style="display: none;">
-                <div class="window-header">
-                    <span>AI Tool 3</span>
+            <div id="app3-window" class="window notepad-window" style="display: none;">
+                <div class="window-header notepad-header">
+                    <span>📝 Sticky Notes</span>
                     <button class="close-btn" onclick="closeWindow('app3-window')">×</button>
                 </div>
-                <div class="window-content placeholder">
-                    <h3>Coming Soon!</h3>
-                    <p>Add button functionality later</p>
+                <div class="window-content notepad-content">
+                    <div class="sticky-note">
+                        <div class="note-lines"></div>
+                        <textarea 
+                            id="notepad-text" 
+                            placeholder="Write your notes here..."
+                            spellcheck="false"></textarea>
+                        <div class="note-corner"></div>
+                    </div>
                 </div>
             </div>
 
-            <div id="app4-window" class="window" style="display: none;">
-                <div class="window-header">
-                    <span>AI Tool 4</span>
-                    <button class="close-btn" onclick="closeWindow('app4-window')">×</button>
+            <div id="home-window" class="window home-window" style="display: none;">
+                <div class="window-header home-header">
+                    <span>🏠 Home Dashboard</span>
+                    <button class="close-btn" onclick="closeWindow('home-window')">×</button>
                 </div>
-                <div class="window-content placeholder">
-                    <h3>Coming Soon!</h3>
-                    <p>Add button functionality later</p>
-                </div>
-            </div>
-
-            <div id="app5-window" class="window" style="display: none;">
-                <div class="window-header">
-                    <span>AI Tool 5</span>
-                    <button class="close-btn" onclick="closeWindow('app5-window')">×</button>
-                </div>
-                <div class="window-content placeholder">
-                    <h3>Coming Soon!</h3>
-                    <p>Add button functionality later</p>
+                <div class="window-content home-content">
+                    <div class="home-grid">
+                        <div class="home-card" onclick="openWindow('youtube-window')">
+                            <div class="card-icon">🎥</div>
+                            <div class="card-title">YouTube</div>
+                            <div class="card-desc">Watch videos</div>
+                        </div>
+                        <div class="home-card" onclick="openWindow('app2-window'); initializeAudioPlayer();">
+                            <div class="card-icon">🎵</div>
+                            <div class="card-title">Music Player</div>
+                            <div class="card-desc">6 tracks available</div>
+                        </div>
+                        <div class="home-card" onclick="openWindow('app3-window'); initializeNotepad();">
+                            <div class="card-icon">📝</div>
+                            <div class="card-title">Sticky Notes</div>
+                            <div class="card-desc">Write notes</div>
+                        </div>
+                        <div class="home-card" onclick="closeWindow('home-window')">
+                            <div class="card-icon">🖼️</div>
+                            <div class="card-title">Backgrounds</div>
+                            <div class="card-desc">Use arrows to change</div>
+                        </div>
+                    </div>
+                    <div class="home-info">
+                        <h3>Welcome to Retro AI Desktop!</h3>
+                        <p>Click on any card above to open an app, or use the taskbar buttons.</p>
+                    </div>
                 </div>
             </div>
         </div>
